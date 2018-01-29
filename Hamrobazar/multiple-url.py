@@ -1,3 +1,7 @@
+'''In this part we obtain the url from popular_ads.csv and we are fetching the required text from each url along with writing the fetched
+data to its individual file. Also for now i have not formatted the data written to the file properly '''
+
+
 import csv
 import requests
 from pyquery import PyQuery as pq
