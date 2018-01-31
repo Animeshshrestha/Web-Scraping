@@ -25,15 +25,16 @@ def table_rows(page) :
         date = row.find('td').eq(3).text().strip()
         price = row.find('td').eq(4).find('b').text().strip()
         status = row.find('td').eq(4).find('font').text().strip()
+        url = row.find('td').eq(2).find('a').attr('href')
 
         if item:
-            data.append([item,user,location,date,price,status])
+            data.append([item,user,location,date,price,status,url])
     return data
 
 def write_csv(mydict) :
      with open('Popular_ads.csv', 'w', newline='') as csv_file:
         writer = csv.DictWriter(csv_file,
-                                fieldnames=["Item_Name", "User_Name", "User_Location", "Date","Price","Status"])
+                                fieldnames=["Item_Name", "User_Name", "User_Location", "Date","Price","Status","url"])
         writer.writeheader()
 
         writer = csv.writer(csv_file, quoting=csv.QUOTE_ALL)
